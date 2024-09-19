@@ -3,6 +3,19 @@
 	// Import the CSS file globally
 	import { Navbar, Button } from 'spaper';
 	import 'papercss/dist/paper.min.css';
+	let navLinks = [
+		{ name: 'About', link: '/about' },
+		{ name: 'Blog', link: '/blog' },
+		{ name: 'Ideas', link: '/ideas' }
+	];
+
+	let contactLink = 'mailto:demirhanomer11@gmail.com';
+	let isMenuOpen = false;
+
+	// Function to toggle mobile menu
+	function toggleMenu() {
+		isMenuOpen = !isMenuOpen;
+	}
 </script>
 
 <div style="display: contents">
@@ -13,12 +26,14 @@
 			<h3 slot="brand">
 				<a href="/">codnomer</a>
 			</h3>
-			<ul class="inline">
-				<li><a href="/blog">Blog</a></li>
-				<li><a href="/about">About</a></li>
-				<li><a href="/ideas">Ideas</a></li>
+			<ul class="inline {isMenuOpen ? 'active' : ''}">
+				{#each navLinks as navLink}
+					<li>
+						<a href={navLink.link}>{navLink.name}</a>
+					</li>
+				{/each}
 				<li>
-					<Button>Project</Button>
+					<Button href={contactLink} class="contact-btn">Contact</Button>
 				</li>
 			</ul>
 		</Navbar>

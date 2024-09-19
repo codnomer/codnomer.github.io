@@ -1,87 +1,230 @@
 <script>
-	import { Hero, Carousel, CarouselItem, Badge } from 'spaper';
+	let greeting = 'Step Into the Digital Realm';
+	let welcomeMessage =
+		'Where Code Meets Creativity - I’m Omer Demirhan, crafting ideas into impactful solutions.';
+	let callToAction = 'Explore My Work';
+	let aboutLink = '/about';
+	let blogLink = '/blog';
+	let ideasLink = '/ideas';
 </script>
 
-<div class="container">
-	<div class="content">
-		<h3>
-			<Badge type="primary">Hi</Badge>, My name is <Badge type="secondary">Omer Demirhan</Badge>
-			I am a <Badge type="success">Full-Stack</Badge> Software Developer.
-		</h3>
-		<h4>
-			I love learning new technologies because, as Steve Jobs famously said, 'Stay hungry, stay
-			foolish,' meaning never lose the desire to learn and always stay curious
-		</h4>
+<main class="welcome-page">
+	<section class="hero">
+		<div class="hero-content">
+			<h1 class="fade-in">{greeting}</h1>
+			<p class="fade-in-delay">{welcomeMessage}</p>
+			<a href={aboutLink} class="cta bounce">{callToAction}</a>
+		</div>
+	</section>
 
-		<!-- <div class="gallery">
-			<img src="jq.webp" alt="Two hands creating a heart and showing the sun" />
-			<img src="starwars.webp" alt="The mountain" />
-			<img src="pg.webp" alt="a river" />
-			<img src="pg.webp" alt="a river" />
-			<img src="pg.webp" alt="a river" /><img src="pg.webp" alt="a river" />
-			<img src="https://picsum.photos/id/823/400/400" alt="a women with a camera" />
-		</div> -->
-		<h5>my tech stack</h5>
-		<div class="gallery">
-			<img src="jss.png" alt="a house on a mountain" />
-		</div>
-		<div class="gallery">
-			<img src="node.png" alt="sime pink flowers" />
-		</div>
-		<div class="gallery">
-			<img src="rust.png" alt="big rocks with some trees" />
-		</div>
+	<section class="explore-section">
+		<h2 class="fade-in">Explore More</h2>
+		<div class="explore-cards">
+			<div class="card blog-card scale-up">
+				<h3>Blog</h3>
+				<p>Dive deep into my thoughts on coding, AI, and tech trends.</p>
+				<a href={blogLink} class="cta">Visit Blog</a>
+			</div>
 
-		<div class="gallery">
-			<img src="svelte.png" alt="a cool landscape" />
+			<div class="card ideas-card scale-up">
+				<h3>Ideas</h3>
+				<p>Discover my creative ideas and projects in progress.</p>
+				<a href={ideasLink} class="cta">Explore Ideas</a>
+			</div>
 		</div>
-		<div class="gallery">
-			<img src="jq.webp" alt="inside a town between two big buildings" />
-		</div>
-		<div class="gallery">
-			<img src="pg.webp" alt="postgresql" />
-		</div>
-		<!-- <Carousel --min-height="100px" --max-height="300px">
-			<CarouselItem>
-				<img src="starwars.webp" />
-			</CarouselItem>
-			<CarouselItem>
-				<img src="https://picsum.photos/id/22/600/300" />
-			</CarouselItem>
-			<CarouselItem>
-				<img src="https://picsum.photos/id/25/600/300" />
-			</CarouselItem>
-			<CarouselItem>
-				<img src="https://picsum.photos/id/43/600/300" />
-			</CarouselItem>
-			<CarouselItem>
-				<img src="https://picsum.photos/id/45/600/300" />
-			</CarouselItem>
-		</Carousel> -->
-	</div>
-</div>
+	</section>
+
+	<section class="animation-bg">
+		<div class="wave"></div>
+		<div class="wave wave2"></div>
+		<div class="wave wave3"></div>
+	</section>
+</main>
 
 <style>
-	.container {
+	/* Reset */
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Montserrat', sans-serif;
+		background-color: #f4f4f4;
+		color: #333;
+		overflow-x: hidden;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	/* Hero Section */
+	.hero {
+		height: 100vh;
 		display: flex;
+		align-items: center;
 		justify-content: center;
-		align-items: center; /* Optional: vertically center the content */
-		/* Optional: adjust the height as needed */
+		text-align: center;
+		background-color: #007acc;
+		color: white;
+		overflow: hidden;
+		position: relative;
 	}
 
-	.content {
-		text-align: center; /* Optional: center the text within the div */
-	}
-	div.gallery {
-		margin: 5px;
-
-		float: left;
-		width: 180px;
+	.hero-content {
+		position: relative;
+		z-index: 1;
 	}
 
-	div.gallery img {
-		width: 100%;
-		object-fit: contain;
-		height: 100px;
+	h1 {
+		font-size: 4.5rem;
+		font-weight: 800;
+		line-height: 1.2;
+		margin-bottom: 20px;
+		color: white;
+	}
+
+	p {
+		font-size: 1.5rem;
+		margin-bottom: 30px;
+		max-width: 600px;
+		color: #f0f0f0;
+	}
+
+	.cta {
+		background-color: white;
+		color: #007acc;
+		padding: 15px 30px;
+		font-size: 1.2rem;
+		border-radius: 30px;
+		transition:
+			background-color 0.3s ease,
+			transform 0.3s ease;
+	}
+
+	.cta:hover {
+		background-color: #00d1b2;
+		color: white;
+		transform: scale(1.1);
+	}
+
+	/* Explore Section */
+	.explore-section {
+		padding: 60px 20px;
+		text-align: center;
+	}
+
+	.explore-section h2 {
+		font-size: 2.5rem;
+		margin-bottom: 30px;
+		animation: fadeIn 2s ease-in;
+	}
+
+	.explore-cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 20px;
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+
+	.card {
+		background-color: white;
+		padding: 40px;
+		border-radius: 20px;
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease;
+	}
+
+	.card:hover {
+		transform: translateY(-10px);
+	}
+
+	.card h3 {
+		font-size: 2rem;
+		color: #007acc;
+	}
+
+	.card p {
+		margin: 20px 0;
+		font-size: 1.1rem;
+		color: #555;
+	}
+
+	/* Waves for background effect */
+	.animation-bg {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 300px;
+		z-index: 0;
+		overflow: hidden;
+	}
+
+	.wave {
+		position: absolute;
+		width: 200%;
+		height: 100%;
+		background: rgba(255, 255, 255, 0.2);
+		opacity: 0.5;
+		border-radius: 40%;
+		animation: wave 6s infinite linear;
+	}
+
+	.wave2 {
+		animation-duration: 8s;
+		background: rgba(255, 255, 255, 0.3);
+	}
+
+	.wave3 {
+		animation-duration: 10s;
+		background: rgba(255, 255, 255, 0.4);
+	}
+
+	@keyframes wave {
+		0% {
+			transform: translateX(-50%);
+		}
+		100% {
+			transform: translateX(50%);
+		}
+	}
+
+	/* Animations */
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.fade-in {
+		animation: fadeIn 1.5s ease-out;
+	}
+
+	.fade-in-delay {
+		animation: fadeIn 2s ease-out;
+	}
+
+	.bounce {
+		animation: bounce 2s infinite;
+	}
+
+	@keyframes bounce {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-10px);
+		}
 	}
 </style>
